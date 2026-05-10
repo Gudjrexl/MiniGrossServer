@@ -18,7 +18,6 @@ app.use(bodyParser.json());
 connectDB();
 
 
-
 app.use('/productimage', express.static(path.join(__dirname, 'productimage')));
 app.use('/productdetails', productdetail);
 app.use("/Categoryimage", express.static(path.join(__dirname, "Categoryimage")));
