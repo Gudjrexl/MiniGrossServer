@@ -6,6 +6,13 @@ const OrderSchema = new mongoose.Schema(
 
     {
 
+         orderid: {
+
+            type: String,
+
+            unique: true
+        },
+
         phoneno: {
             type: String,
             required: true
@@ -90,6 +97,23 @@ const OrderSchema = new mongoose.Schema(
         timestamps: true
     }
 );
+
+
+OrderSchema.pre("save", function(next){
+
+    if(!this.orderid){
+
+        const random =
+            Math.floor(
+                100000 + Math.random() * 900000
+            )
+
+        this.orderid =
+            `ORD${Date.now()}${random}`
+    }
+
+    next()
+})
 
 module.exports =
     mongoose.model(
