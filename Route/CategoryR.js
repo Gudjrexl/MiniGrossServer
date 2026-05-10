@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Category = require('../schema/Category');
+const Category = require('../Schema/Category');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
